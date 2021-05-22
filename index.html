@@ -4,11 +4,11 @@
 
 <div id="demo">
 <h2>The XMLHttpRequest Object</h2>
-<button type="button" onclick="loadDoc()">Change Content</button>
+<button type="button" onclick="sendRequest()">Change Content</button>
 </div>
 
 <script>
-function loadDoc() {
+function sendRequest() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
    
@@ -16,8 +16,9 @@ function loadDoc() {
       this.responseText;
     
   };
-  xhttp.open("GET", "file.txt", true);
-  xhttp.send();
+xhttp.open("POST", "file.asp", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("fname=Henry&lname=Ford");
 }
 </script>
 
